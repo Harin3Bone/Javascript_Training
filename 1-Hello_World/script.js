@@ -2,7 +2,6 @@
 console.log('Hello World');
 console.log('----------------');
 
-
 //! Description
     //? Topic : console.log
         //# console.log Is a command use for print something on console.

@@ -44,9 +44,16 @@ bool3 = bool2||bool1;
     console.log(number3===number3);
     console.log(number3===number1);
     console.log(bool2===number3);
+    console.log('---------------');
 
 //! Operator Part 2 Project
 
+//! Challenge 
+    console.log(10+10+'Hello');
+        //# Result = 20Hello -> Javascript detect Number then calculate get 20, After that Number + String fetch 20Hello.
+    console.log('Hello'+10+10);
+        //# Result = Hello1010 -> Javascript detect String then after that String + Number fetch Hello1010.
+    //// console.log(10+10+'Hello'+10);
 
 //! Description
     //? Topic : Mathematic operator

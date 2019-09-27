@@ -1,5 +1,5 @@
 //! Variable Project
-var string = 'StringTest'; 
+var string = 'StringTest';
 var number = 3;
 var bool = true;
 var undefinedTest;
@@ -12,8 +12,8 @@ console.log(undefinedTest);
 console.log(nullTest);
 
 //! Puzzle
-console.log('Value is : ',undefinedTest);
-console.log('Value is : ',number ,'\nSorry',string);
+console.log('Value is : ', undefinedTest);
+console.log('Value is : ', number, '\nSorry', string);
 
 //! Description
     //? Topic : var 

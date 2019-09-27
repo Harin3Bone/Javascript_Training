@@ -11,7 +11,7 @@ console.log(bool);
 console.log(undefinedTest);
 console.log(nullTest);
 
-//! Challenge
+//! Puzzle
 console.log('Value is : ',undefinedTest);
 console.log('Value is : ',number ,'\nSorry',string);
 

@@ -47,8 +47,49 @@ bool3 = bool2||bool1;
     console.log('---------------');
 
 //! Operator Part 2 Project
+    //? Precedence Operator 
+    var precedenceNumber = 1;
+    var precedenceString = 'Precedence';
 
-//! Challenge 
+    //? Multiple Operator
+    var multipleNumber = 1+2+3+4;
+    var multipleVariableNumber = number1+number1-number3;
+    var multipleVariableString = string1+string3;
+    var multipleVariableType = number1+string3;
+    var multipleBoolean = 5+5 >= 10;
+    console.log(multipleNumber);
+    console.log(multipleVariableNumber);
+    console.log(multipleVariableString);
+    console.log(multipleVariableType);
+    console.log(multipleBoolean);
+    console.log('---------------');
+
+    //? Grouping
+    var groupNumber1 = 10-(5*2);
+    var groupNumber2 = (10-5)*2;
+    var groupBool1 = 10+5>=4&&3-3*2>9;
+    var groupBool2 = ((10+5)>=4)&&(((3-3)*2)>9);
+    console.log('G1 :',groupNumber1,'\nG2 :',groupNumber2);
+    console.log('B1 : ',groupBool1,'\nB2 : ',groupBool2);
+    console.log('---------------');
+
+    //? Multiple Assignment
+    var assignA , assignB;
+    assignA = assignB = (3*3)+3-3;
+    console.log(assignA,assignB);
+    console.log(assignA===assignB);
+    console.log('---------------');
+
+    //? More Operator
+    var more1 = 1;
+    console.log('First Value :',more1);
+    more1++;
+    console.log('Second Value : ',more1)
+    more1 += 1;
+    console.log('Third Value : ',more1);
+    console.log('---------------');
+
+//! Puzzle 
     console.log(10+10+'Hello');
         //# Result = 20Hello -> Javascript detect Number then calculate get 20, After that Number + String fetch 20Hello.
     console.log('Hello'+10+10);
@@ -57,7 +98,7 @@ bool3 = bool2||bool1;
 
 //! Description
     //? Topic : Mathematic operator
-        //# Example : + , - , * , / , % , ++ , -- 
+        //# Example : + , - , * , / , %
             //* +       : When use with String -> A+B = AB (Give a combine String)
             //* +       : When use with Number -> 1+2 = 3 (Give a result)
             //* -,*,/,% : Can use with Number only 
@@ -67,3 +108,5 @@ bool3 = bool2||bool1;
             //* ===     : Use to compare value and data type is same or not.
     //? Topic : typeof operator
         //# typeof it use for check what data type of variable 
+    //? Topic : Special operator
+        //# Example : ++ , -- , += , -= , *= , /= , %=

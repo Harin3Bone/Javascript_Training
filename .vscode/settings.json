@@ -1,0 +1,90 @@
+{
+    //-- Default Setting
+    "files.autoSave": "afterDelay",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.mouseWheelZoom": true,
+    
+    //-- Better Comment
+    "better-comments.multilineComments": true,
+    "better-comments.highlightPlainText": false,
+    "better-comments.tags": [
+        {
+            //! Red
+            "tag": "!",
+            "color": "#ff3d3d",
+            //// FF2D00
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //? Blue
+            "tag": "?",
+            "color": "#3498DB",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //# Yellow
+            "tag": "#",
+            "color": "#ffe100",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //* Green
+            "tag": "*",
+            "color": "#00f742",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //~ Purple
+            "tag": "~",
+            "color": "#ff45ca",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //todo Orange
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //mark Sky
+            "tag": "mark",
+            "color": "#00dfe3",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            //-- White
+            "tag": "--",
+            "color": "#ffffff",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        },
+        {
+            ////Black
+            "tag": "//",
+            "color": "#6e6e6e",
+            "strikethrough": false,
+            "backgroundColor": "transparent"
+        }
+    ],
+
+    //-- Bracket Pair Color
+    "bracket-pair-colorizer-2.colors": [
+        "Gold",
+        "Orchid",
+        "#00dfe3",
+        "#FF8C00",
+        "",
+    ],
+    //-- Todo Highlight
+}

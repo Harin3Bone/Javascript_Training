@@ -19,29 +19,24 @@ var mikeAverage = (116 + 94 + 123) / 3;
     //// chadAverage > mikeAverage ? console.log('Chad WIN') : console.log('Mike WIN');
 
     //? Condition 1-3
-    if (chadAverage > mikeAverage){
-        console.log('Chad WIN');
-    }
-    else if (mikeAverage > chadAverage){
-        console.log('Mike WIN');
-    }
-    else {
+    if (chadAverage > mikeAverage) {
+        console.log('Chad WIN with score : ' + chadAverage + ' points.');
+    } else if (mikeAverage > chadAverage) {
+        console.log('Mike WIN with score : ' + mikeAverage + ' points.');
+    } else {
         console.log('DRAW');
     }
     console.log('---------------');
 
 //! EXTRA SOLUTION
-var flitchAverage = (97 + 134 + 105) /3;
+var flitchAverage = (97 + 134 + 105) / 3;
 
-    if ((chadAverage > mikeAverage) && (chadAverage > flitchAverage)){
-        console.log('Chad WIN');
-    }
-    else if ((mikeAverage > chadAverage) && (mikeAverage > flitchAverage)){
-        console.log('Mike WIN');
-    }
-    else if((flitchAverage > mikeAverage) && (flitchAverage > chadAverage)){
-        console.log('Flitch WIN');
-    }
-    else {
+    if ((chadAverage > mikeAverage) && (chadAverage > flitchAverage)) {
+        console.log('Chad WIN with score : ' + chadAverage + ' points.');
+    } else if ((mikeAverage > chadAverage) && (mikeAverage > flitchAverage)) {
+        console.log('Mike WIN with score : ' + mikeAverage + ' points.');
+    } else if ((flitchAverage > mikeAverage) && (flitchAverage > chadAverage)) {
+        console.log('Flitch WIN with score : ' + flitchAverage + ' points.');
+    } else {
         console.log('DRAW');
     }

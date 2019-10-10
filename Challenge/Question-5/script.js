@@ -2,8 +2,8 @@
     //? Question : John and his family went on a holiday and went to 3 different restaurant.  
     //? Bills price is $124 , $48 , $268 , $180 , $42
     //? He want to tip waiter/waitress 20% if bill < $50
-    //? He want to tip waiter/waitress 15% if $50 <= bill <= $200
-    //? He want to tip waiter/waitress 10% if bill > $200 
+    //? He want to tip waiter/waitress 15% if $50 <= bill < $200
+    //? He want to tip waiter/waitress 10% if bill => $200 
         //# Condition
             //* 1.Create an object with an array for the bill values.
             //* 2.Add method to calculate the tip.
@@ -17,7 +17,7 @@
     //? EXTRA : Mark family also went on a holiday go different 4 restaurant
     //? Bills price is $77 , $375 , $110 , $45
     //? He want to tip waiter/waitress 20% if bill < $100
-    //? He want to tip waiter/waitress 15% if $100 <= bill <= $300
+    //? He want to tip waiter/waitress 15% if $100 <= bill < $300
     //? He want to tip waiter/waitress 10% if bill > $300
         //# Condition
             //* 5.Implement the same functionality as before, this time using Mark's tipping rules
@@ -46,82 +46,54 @@ function checkWhoHighest(john,mark){
 }
 
 var johnBill = {
-    price: [124, 48, 268, 180, 42],
-    tip: [],
-    result: [],
-    calTip: function () {
-        var percent;
-        for (var tipPush = 0; tipPush < this.price.length; tipPush++) {
-            if (this.price < 100) {
+    bills: [124, 48, 268, 180, 42],
+    // tip: [],
+    // result: [],
+    calculate: function () {
+        this.tip = [];
+        this.result = [];
+        for (var x = 0; x < this.bills.length; x++) {
+            var bill = this.bills[x]; 
+            var percent;
+            if (this.bills < 50) {
                 percent = 0.2;
-            } else if (this.price >= 100 && this.price <= 300) {
+            } else if (this.bills >= 50 && this.bills < 200) {
                 percent = 0.15;
             } else {
                 percent = 0.1;
             }
-            this.tip[tipPush] = this.price[tipPush] * percent;
-        }
-    },
-    calResult: function(){
-        for (var resultPush = 0; resultPush < this.price.length; resultPush++){
-            this.result[resultPush] = this.price[resultPush] + this.tip[resultPush];
+            this.tip[x] = bill * percent;
+            this.result[x] = this.tip[x] + this.bills[x];
         }
     }
 }
-johnBill.calTip();
-johnBill.calResult();
-
-for (var x = 0; x < johnBill.price.length; x++) {
-    console.log('John bill cost ' + (x + 1) + ' : $' + johnBill.price[x]);
-}
-console.log('----------------------------------------');
-for (var y = 0; y < johnBill.tip.length; y++) {
-    console.log('John tip cost ' + (y + 1) + ' : $' + johnBill.tip[y]);
-}
-console.log('----------------------------------------');
-for (var z = 0; z < johnBill.result.length; z++) {
-    console.log('John paid cost ' + (z + 1) + ' : $' + johnBill.result[z]);
-}
-console.log('----------------------------------------');
+johnBill.calculate();
 
 var markBill = {
     price: [77, 375, 110, 45],
     tip: [],
     result: [],
-    calTip: function () {
+    calculate: function () {
         var percent;
         for (var tipPush = 0; tipPush < this.price.length; tipPush++) {
-            if (this.price < 50) {
+            if (this.price < 100) {
                 percent = 0.2;
-            } else if (this.price >= 50 && this.price <= 200) {
+            } else if (this.price >= 100 && this.price < 300) {
                 percent = 0.15;
             } else {
                 percent = 0.1;
             }
             this.tip[tipPush] = this.price[tipPush] * percent;
-        }
-    },
-    calResult: function(){
-        for (var resultPush = 0; resultPush < this.price.length; resultPush++){
-            this.result[resultPush] = this.price[resultPush] + this.tip[resultPush];
+            this.result[tipPush] = this.price[tipPush] + this.tip[tipPush];
         }
     }
 }
 
-markBill.calTip();
-markBill.calResult();
+markBill.calculate();
 
-for (var a = 0; a < markBill.price.length; a++) {
-    console.log('Mark bill cost ' + (a + 1) + ' : $' + markBill.price[a]);
-}
+console.log(johnBill);
 console.log('----------------------------------------');
-for (var b = 0; b < markBill.tip.length; b++) {
-    console.log('Mark tip cost ' + (b + 1) + ' : $' + markBill.tip[b]);
-}
-console.log('----------------------------------------');
-for (var c = 0; c < markBill.result.length; c++) {
-    console.log('Mark paid cost ' + (c + 1) + ' : $' + markBill.result[c]);
-}
+console.log(markBill);
 console.log('----------------------------------------');
 
 var johnAverage = average(johnBill.tip);

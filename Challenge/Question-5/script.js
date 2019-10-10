@@ -28,14 +28,6 @@
                 //~ After you have the sum of the array, divide it by the number of elements in it (That's how you calculate the average)
 
 //! My Solution
-function average(tip){
-    allTip = 0;
-    for (var counter = 0 ; counter < tip.length ; counter++){
-        allTip += tip[counter];
-    }
-    return averageTip = allTip/tip.length;
-}
-
 function checkWhoHighest(john,mark){
     if (john>mark){
         console.log('John family is the most paid highest tip in this holiday trip : $' +john);
@@ -47,48 +39,55 @@ function checkWhoHighest(john,mark){
 
 var johnBill = {
     bills: [124, 48, 268, 180, 42],
-    // tip: [],
-    // result: [],
+    tip: [],
+    result: [],
     calculate: function () {
-        this.tip = [];
-        this.result = [];
         for (var x = 0; x < this.bills.length; x++) {
             var bill = this.bills[x]; 
             var percent;
-            if (this.bills < 50) {
+            if (this.bills[x] < 50) {
                 percent = 0.2;
-            } else if (this.bills >= 50 && this.bills < 200) {
+            } else if (this.bills[x] >= 50 && this.bills[x] < 200) {
                 percent = 0.15;
             } else {
                 percent = 0.1;
             }
-            this.tip[x] = bill * percent;
-            this.result[x] = this.tip[x] + this.bills[x];
+            this.tip[x] = this.bills[x] * percent;
+            this.result[x] = this.bills[x] + this.tip[x];
         }
     }
 }
-johnBill.calculate();
 
 var markBill = {
-    price: [77, 375, 110, 45],
+    bills: [77, 475, 110, 45],
     tip: [],
     result: [],
     calculate: function () {
         var percent;
-        for (var tipPush = 0; tipPush < this.price.length; tipPush++) {
-            if (this.price < 100) {
+        for (var y = 0; y < this.bills.length; y++) {
+            var percent;
+            if (this.bills[y] < 100) {
                 percent = 0.2;
-            } else if (this.price >= 100 && this.price < 300) {
-                percent = 0.15;
-            } else {
+            } else if (this.bills[y] >= 100 && this.bills[y] < 300) {
                 percent = 0.1;
+            } else {
+                percent = 0.25;
             }
-            this.tip[tipPush] = this.price[tipPush] * percent;
-            this.result[tipPush] = this.price[tipPush] + this.tip[tipPush];
+            this.tip[y] = this.bills[y] * percent;
+            this.result[y] = this.bills[y] + this.tip[y];
         }
     }
 }
 
+function average(tip){
+    allTip = 0;
+    for (var counter = 0 ; counter < tip.length ; counter++){
+        allTip += tip[counter];
+    }
+    return averageTip = allTip/tip.length;
+}
+
+johnBill.calculate();
 markBill.calculate();
 
 console.log(johnBill);

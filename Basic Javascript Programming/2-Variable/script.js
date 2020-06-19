@@ -1,31 +1,33 @@
 //! Variable Project
 var string = 'StringTest'
 var number = 3
+var numberV2 = 1+2
 var flt = 3.12345
 var bool = true
 var undefinedTest
 var nullTest = null
 
-// console.log(string)
-// console.log(number)
-// console.log(bool)
-// console.log(undefinedTest)
-// console.log(nullTest)
-// console.log(flt.toFixed(3))
-// console.log(flt.toPrecision(3))
+console.log(string)
+console.log(number)
+console.log(numberV2)
+console.log(bool)
+console.log(undefinedTest)
+console.log(nullTest)
+console.log(flt.toFixed(3))
+console.log(flt.toPrecision(3))
 
 //! Coercion
-var firstName = 'Eren';
-var age = 16;
+var firstName = 'Eli';
+var age = 18;
 
-// console.log(firstName + ' ' + age)
+console.log(firstName + ' ' + age)
 
-//! Mutation
-// alert(firstName + ' ' + age)
+// ! Mutation
+alert(firstName + ' ' + age)
 
 //! Puzzle
-// console.log('Value is : ', undefinedTest)
-// console.log('Value is : ', number, '\nSorry', string)
+console.log('Value is : ', undefinedTest)
+console.log('Value is : ', number, '\nSorry', string)
 
 //! Description
     //? Topic : var 

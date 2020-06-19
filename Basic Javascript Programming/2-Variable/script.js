@@ -1,19 +1,31 @@
 //! Variable Project
-var string = 'StringTest';
-var number = 3;
-var bool = true;
-var undefinedTest;
-var nullTest = null;
+var string = 'StringTest'
+var number = 3
+var flt = 3.12345
+var bool = true
+var undefinedTest
+var nullTest = null
 
-console.log(string);
-console.log(number);
-console.log(bool);
-console.log(undefinedTest);
-console.log(nullTest);
+// console.log(string)
+// console.log(number)
+// console.log(bool)
+// console.log(undefinedTest)
+// console.log(nullTest)
+// console.log(flt.toFixed(3))
+// console.log(flt.toPrecision(3))
+
+//! Coercion
+var firstName = 'Eren';
+var age = 16;
+
+// console.log(firstName + ' ' + age)
+
+//! Mutation
+// alert(firstName + ' ' + age)
 
 //! Puzzle
-console.log('Value is : ', undefinedTest);
-console.log('Value is : ', number, '\nSorry', string);
+// console.log('Value is : ', undefinedTest)
+// console.log('Value is : ', number, '\nSorry', string)
 
 //! Description
     //? Topic : var 
@@ -33,3 +45,8 @@ console.log('Value is : ', number, '\nSorry', string);
             //* Null        : Non-existence.
         //# var can define Data Type by itself -> And you can use operator as like Java Language.
                 //~ Javascript have Dynamic JavaScript Data Type -> Data Type are automatic assigned to variable.
+    //? Topic : coercion
+        //# coercion is an javascript detection 
+            //* When you put string plus with number in javascript they will transfer number into string -> coercion
+    //? Topic : mutation
+        //# Just like an coercion but use in alert or prompt method

@@ -1,12 +1,16 @@
 //! Variable Project
 var string = 'StringTest'
 var number = 3
+<<<<<<< HEAD
 var numberV2 = 1+2
+=======
+>>>>>>> master
 var flt = 3.12345
 var bool = true
 var undefinedTest
 var nullTest = null
 
+<<<<<<< HEAD
 console.log(string)
 console.log(number)
 console.log(numberV2)

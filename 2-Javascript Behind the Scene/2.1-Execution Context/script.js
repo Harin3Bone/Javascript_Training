@@ -5,21 +5,26 @@
     function first(){           //# Global Execution
         var a = 'Hello';        //* Execution Context first()
         second();               //* Execution Context first()
+        // third(); 
         var x = a + name;       //* Execution Context first()
+        console.log(x)
     }
 
     function second(){          //# Global Execution
         var b = 'Hi'            //* Execution Context second()
         third();                //* Execution Context second()
         var z = b + name;       //* Execution Context second()
+        console.log(z)
     }
 
     function third(){           //# Global Execution
         var c = 'Hey'           //* Execution Context third()
+        // second();
         var z = c + name        //* Execution Context third()
+        console.log(z)
     }
 
-    first();
+    first();                    //# Global Execution    
 
     //? Execution Stack
         //# Reading execution 

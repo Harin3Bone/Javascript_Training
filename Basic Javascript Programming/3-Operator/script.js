@@ -93,7 +93,7 @@ bool3 = bool2 || bool1;
     console.log(10 + 10 + 'Hello');
     //# Result = 20Hello -> Javascript detect Number then calculate get 20, After that Number + String fetch 20Hello.
     console.log('Hello' + 10 + 10);
-    //# Result = Hello1010 -> Javascript detect String then after that String + Number fetch Hello1010.
+    //# Result = Hello1010 -> Javascript detect String then after t00hat String + Number fetch Hello1010.
     //// console.log(10+10+'Hello'+10);
 
 //! Description

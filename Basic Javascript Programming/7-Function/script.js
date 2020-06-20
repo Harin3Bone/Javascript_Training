@@ -2,10 +2,18 @@
 
     //? Function with return value
     function calculateAge(birthYear) {
-        return 2019 - birthYear;
+        return 2019 - birthYear; 
+        //# return in equation
     }
 
+    //? Function with return condition
+    function compareAge(b1,b2){
+        return b1<=b2
+    }
+    
+
     var ageHiroto = calculateAge(1997);
+    console.log(compareAge(1,2))
     console.log(calculateAge(), calculateAge(1995), ageHiroto);
 
     //? Function with statement 

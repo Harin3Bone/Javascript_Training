@@ -3,8 +3,10 @@
 var names = ['Hiroto','Hibiki','Hikaru'];
 var years = [1997,1998,1999];
 var yeahs = new Array (1995,1996,1997);
+var arr = [['a','b'],['c','d','e'],['f']];
 
     //? Array definition
+    console.log(arr);
     console.log(names);
     console.log(years);
     console.log(yeahs);

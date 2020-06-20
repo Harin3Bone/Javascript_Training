@@ -4,14 +4,16 @@
         //     console.log(x);
         // }
 
-    var asuka = ['Asuka','Nishimiya',2002,'Female','Single'];
+    var asuka = ['Asuka','Nishimiya',2002,'Female','Single',true];
 
-    for (var y = 0; y < asuka.length; y++){
-        console.log(asuka[y]);
+    console.log('FOR LOOP')
+    for (var index = 0; index < asuka.length; index++){
+        console.log(asuka[index] + ' ' + index);
     }
     console.log('-----------------');
 
     //? While Loop
+    console.log('WHILE LOOP')
     var a = 0;
     while (a < asuka.length){
         console.log(asuka[a]);
@@ -20,6 +22,16 @@
     console.log('-----------------');
 
     //? Continue and Break statement
+    // if (typeof asuka[2] === 'number'){
+    //     console.log('true')
+    // }
+    // else{
+    //     console.log('false')
+    // }
+
+    // console.log('-----------------');
+
+    console.log('CONTINUE')
     for (var b = 0; b < asuka.length; b++){
         // if (typeof asuka[b] === 'string') {
         //     continue;
@@ -30,6 +42,7 @@
 
     console.log('-----------------');
 
+    console.log('BREAK')
     for (var c = 0; c < asuka.length; c++){
         // if (typeof asuka[b] === 'string') {
         //     break;
@@ -40,6 +53,7 @@
     console.log('-----------------');
 
     //? Backward loop
+    console.log('BACKWARD LOOP')
     for (var i = asuka.length - 1; i >= 0; i--){
         console.log(asuka[i]);
     }
@@ -52,7 +66,7 @@
         //# }
             //* Can use with print to ()
                 //~ 
-                //~ statement in for bracket will do when condition is TRU only.
+                //~ statement in for bracket will do when condition is TRUE only.
     //? Topic : While Loop
         //# Syntax = while (condition){
         //#     statement1;

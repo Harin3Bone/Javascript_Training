@@ -59,8 +59,22 @@
             //# Execution Stack must have "Global Execution" on first 
             //# You can call function before function because "Execution Stack" will do "Execution Context" after you call
         //? Topic : Hoisting
-            //# Can use with "Function declaration" & "Variable declaration" only.
-                //* Hoisting is process in Creation phase it will be move all "Declaration" to the Top of the code (Because it is "Global")
+            //# Can use with "Function declaration" & "Variable declaration" only. 
+                //* Hoisting is process in Creation phase it will be move all "Declaration" to the Top of the code in function scope
                     //~ var variableName = function() {} -> Function Expression not Function Declaration
-                    //~ function functionName() {} -> Function Declaration     
-                
+                    //~ function functionName() {} -> Function Declaration
+
+var numberOne = 1
+
+function functionNumberOne() {
+    var numberTwo = 2
+    console.log(numberOne)
+
+    function functionNumberTwo(){
+        console.log(numberTwo)
+    }
+
+    functionNumberTwo()
+}
+
+functionNumberOne()

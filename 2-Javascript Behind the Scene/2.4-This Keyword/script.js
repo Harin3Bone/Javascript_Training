@@ -7,7 +7,9 @@
     calculateAge(2002)
 
     function calculateAge(year) {
-        // console.log(2020 - year);
+        var todayYear = 2020
+        // console.log('Year = ' + (this.todayYear - year));
+        // console.log('Today Year = ' + this.todayYear);
 
         //* 'this' = Default Object (Window Object) -> Object [global] (Regular Function)
         //! Because this function is 'Function Declaration' in 'Global Scope' -> Global Execution

@@ -160,3 +160,9 @@ function endGame() {
 document.querySelector('.btn-new').addEventListener('click', function () {
     endGame();
 });
+
+//! Description
+//? About document.querySelector.addEventListener('click', [functionName])
+//# If you use ('click', hello()); -> function hello() { statement } -> Will automatic run
+//* Then you not want to function automatic run you should do like this ->
+//* ('click' , hello); -> function hello() will not do until you click (as your event trigger)

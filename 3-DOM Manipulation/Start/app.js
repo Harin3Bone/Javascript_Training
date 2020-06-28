@@ -8,8 +8,8 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var scores, roundScore, activePlayer, dice;
-// var dice1
+var scores, roundScore, activePlayer;
+// var dice,dice1
 
 scores = [0, 0];
 roundScore = 0;
@@ -21,7 +21,7 @@ activePlayer = 1;
 //# 2.Math.floor(Math.random()) -> random number 0 to 1 (with integer number)
 //* if we get 0 + 1 -> 1 actually get 5 then will be 6 (it will not fetch 0 but it can get as well)
 
-dice = Math.floor(Math.random() * 6) + 1;
+// dice = Math.floor(Math.random() * 6) + 1;
 // dice1 = Math.floor(Math.random() * 6) + 1;
 
 //! Query Selector Keyword
@@ -35,14 +35,56 @@ dice = Math.floor(Math.random() * 6) + 1;
 //~ If use innerHTML you can use <tag> in value
 
 // document.querySelector('#current-' + activePlayer).textContent = '<em>' + dice + '</em>';
-document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
+// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 
 //! Dice Image
 //? . use for in HTML 'Class'
 //? # use for in HTML 'Id'
 document.querySelector('.dice').style.display = 'none';
 
+//! getElementById // getElementByName // getElementByClassName
+//? getElement -> Use for get something from HTML and then you can do what you want
+//* If use method like these -> No Need to use # , . -> Just put name
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+//! Function Declaration
+// function rollBtn(){
+//     //* Do something here
+// }
+
 //! EVENT Manipulation
 //? Events : Notification that are sent to notify the code that something happened on the webpage
 //? Event listener : A function that performs an action based on a certain event. It waits for a specific event to happen
- 
+//# In EventListener() can find at https://developer.mozilla.org/en-US/docs/Web/Events
+//* You can use function in event like this or 
+// document.querySelector('.btn-roll').addEventListener('click', rollBtn);
+//* Create function in event
+//~ Roll Button onClick Listener
+document.querySelector('.btn-roll').addEventListener('click', function () {
+    //* Do something here
+
+    //? Random Number
+    var rollDice = Math.floor(Math.random() * 6) + 1;
+
+    //? Display Result
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'dice-' + rollDice + '.png';
+
+    //? Update Round Score
+    document.getElementById('score-0').textContent = rollDice;
+    document.getElementById('score-1').textContent = rollDice;
+    document.getElementById('current-0').textContent = rollDice * 2;
+    document.getElementById('current-1').textContent = '0';
+});
+
+//~ New Game Button onClick Listener
+document.querySelector('.btn-new').addEventListener('click', function () {
+    document.getElementById('score-0').textContent = '0';
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+})

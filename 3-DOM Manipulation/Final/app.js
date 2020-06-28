@@ -11,7 +11,7 @@ GAME RULES:
 */
 
 //! Variable Declaration
-var score, activePlayer, current, dice;
+var score, activePlayer, current, dice, gamePlay;
 
 //! Initializing
 startGame();
@@ -19,6 +19,9 @@ startGame();
 //! Create Function
 //# Start Game
 function startGame() {
+    //* State
+    gamePlay = true;
+
     //? Initialize Value
     score = [0, 0];
     current = 0;
@@ -33,7 +36,7 @@ function startGame() {
     //? Set Name
     document.getElementById('name-0').textContent = 'Ayase';
     document.getElementById('name-1').textContent = 'Hayasaka';
-    
+
     //? Set Dice
     document.querySelector('.dice').style.display = 'none';
 
@@ -48,39 +51,45 @@ function startGame() {
 
 //# Roll Button Function
 function btnRoll() {
-    //? Random Number & Set Current
-    dice = Math.floor((Math.random() * 6) + 1);
+    //* Check State
+    if (gamePlay) {
+        //? Random Number & Set Current
+        dice = Math.floor((Math.random() * 6) + 1);
 
-    //? Dice Image
-    var diceDOM;
-    diceDOM = document.querySelector('.dice');
-    diceDOM.style.display = 'block';
-    diceDOM.src = 'dice-' + dice + '.png';
+        //? Dice Image
+        var diceDOM;
+        diceDOM = document.querySelector('.dice');
+        diceDOM.style.display = 'block';
+        diceDOM.src = 'dice-' + dice + '.png';
 
-    //? Rule to Change player
-    if (dice !== 1) {
-        current += dice;
-        document.getElementById('current-' + activePlayer).innerHTML = '<em>' + current + '</em>';
-    } else {
-        nextPlayer();
+        //? Rule to Change player
+        if (dice !== 1) {
+            current += dice;
+            document.getElementById('current-' + activePlayer).innerHTML = '<em>' + current + '</em>';
+        } else {
+            nextPlayer();
+        }
     }
-
 }
 
 //# Hold Button Function
 function btnHold() {
-    //? Set Score
-    score[activePlayer] += current;
-    document.getElementById('score-' + activePlayer).textContent = score[activePlayer];
+    //* Check State
+    if (gamePlay) {
+        //? Set Score
+        score[activePlayer] += current;
+        document.getElementById('score-' + activePlayer).textContent = score[activePlayer];
 
-    //? Win Condition
-    if (score[activePlayer] >= 20) {
-        document.getElementById('name-' + activePlayer).textContent = 'WINNER';
-        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-
-    } else {
-        nextPlayer();
+        //? Win Condition
+        if (score[activePlayer] >= 20) {
+            document.getElementById('name-' + activePlayer).textContent = 'WINNER';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            document.querySelector('.dice').style.display = 'none';
+            gamePlay = false;
+        } else {
+            nextPlayer();
+        }
     }
 
 }

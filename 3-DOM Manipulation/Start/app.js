@@ -68,17 +68,52 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     //? Random Number
     var rollDice = Math.floor(Math.random() * 6) + 1;
+    // console.log(rollDice)
 
     //? Display Result
     var diceDOM = document.querySelector('.dice');
     diceDOM.style.display = 'block';
     diceDOM.src = 'dice-' + rollDice + '.png';
 
-    //? Update Round Score
-    document.getElementById('score-0').textContent = rollDice;
-    document.getElementById('score-1').textContent = rollDice;
-    document.getElementById('current-0').textContent = rollDice * 2;
-    document.getElementById('current-1').textContent = '0';
+    //? Update Dice Display
+    document.getElementById('score-' + activePlayer).textContent = rollDice;
+
+    //? Condition
+    //~ If you roll dice get 2 3 4 5 6 it will continue
+    if (rollDice !== 1) {
+        //# Add Score
+        roundScore += rollDice;
+        document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    }
+    //~ If you roll dice get 1 then change player
+    else {
+        //# Next Player 
+        console.log(rollDice)
+
+        //* If-Else
+        // if (activePlayer === 0){
+        //     activePlayer = 1;        
+        // }
+        // else {
+        //     activePlayer = 0;
+        // }
+
+        //* Ternary
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+        roundScore = 0;
+
+        document.getElementById('current-0').textContent = '0';
+        document.getElementById('current-1').textContent = '0';
+
+        //~ Toggle 
+        document.querySelector('.player-0-panel').classList.toggle('active');
+        document.querySelector('.player-1-panel').classList.toggle('active');
+
+        //~ Add & Remove
+        // document.querySelector('.player-0-panel').classList.remove('active');
+        // document.querySelector('.player-1-panel').classList.add('active');
+
+    }
 });
 
 //~ New Game Button onClick Listener

@@ -19,7 +19,7 @@ startGame();
 //! Create Function
 //# Start Game
 function startGame() {
-    //* State
+    //* Set State
     gamePlay = true;
 
     //? Initialize Value
@@ -86,6 +86,8 @@ function btnHold() {
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
             document.querySelector('.dice').style.display = 'none';
+
+            //* Set State
             gamePlay = false;
         } else {
             nextPlayer();

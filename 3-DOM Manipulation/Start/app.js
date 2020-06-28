@@ -13,7 +13,7 @@ var scores, roundScore, activePlayer;
 
 scores = [0, 0];
 roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
 
 //! Random Number Method
 //# 1.Math.random()             -> random number 0 to 1 (with decimal number)
@@ -62,6 +62,37 @@ document.getElementById('current-1').textContent = '0';
 //* You can use function in event like this or 
 // document.querySelector('.btn-roll').addEventListener('click', rollBtn);
 //* Create function in event
+
+//~ Change player function 
+function changePlayer() {
+    //* If-Else
+    // if (activePlayer === 0){
+    //     activePlayer = 1;        
+    // }
+    // else {
+    //     activePlayer = 0;
+    // }
+
+    //* Ternary
+    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    roundScore = 0;
+
+    //# Set current = 0 (Rule of Game)
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+
+    //~ Toggle 
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+
+    //~ Add & Remove
+    // document.querySelector('.player-0-panel').classList.remove('active');
+    // document.querySelector('.player-1-panel').classList.add('active');
+
+    //~ Remove dice
+    document.querySelector('.dice').style.display = 'none';
+}
+
 //~ Roll Button onClick Listener
 document.querySelector('.btn-roll').addEventListener('click', function () {
     //* Do something here
@@ -76,7 +107,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     diceDOM.src = 'dice-' + rollDice + '.png';
 
     //? Update Dice Display
-    document.getElementById('score-' + activePlayer).textContent = rollDice;
+    // document.getElementById('score-' + activePlayer).textContent = rollDice;
 
     //? Condition
     //~ If you roll dice get 2 3 4 5 6 it will continue
@@ -87,39 +118,45 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     }
     //~ If you roll dice get 1 then change player
     else {
-        //# Next Player 
-        console.log(rollDice)
-
-        //* If-Else
-        // if (activePlayer === 0){
-        //     activePlayer = 1;        
-        // }
-        // else {
-        //     activePlayer = 0;
-        // }
-
-        //* Ternary
-        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-        roundScore = 0;
-
-        document.getElementById('current-0').textContent = '0';
-        document.getElementById('current-1').textContent = '0';
-
-        //~ Toggle 
-        document.querySelector('.player-0-panel').classList.toggle('active');
-        document.querySelector('.player-1-panel').classList.toggle('active');
-
-        //~ Add & Remove
-        // document.querySelector('.player-0-panel').classList.remove('active');
-        // document.querySelector('.player-1-panel').classList.add('active');
-
+        //# Next Player
+        changePlayer();
     }
 });
 
-//~ New Game Button onClick Listener
-document.querySelector('.btn-new').addEventListener('click', function () {
+//~ Hold Button
+document.querySelector('.btn-hold').addEventListener('click', function () {
+    //* Add Current score to global score
+    scores[activePlayer] += roundScore;
+
+    //* Update the UI Interface
+    document.getElementById('score-' + activePlayer).innerHTML = scores[activePlayer];
+
+    //! Find who is the WINNER    
+    if (scores[activePlayer] >= 10) {
+        document.querySelector('#name-' + activePlayer).textContent = 'WINNER';
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    } else {
+        changePlayer();
+    }
+});
+
+//~ End Game
+function endGame() {
+    document.querySelector('.dice').style.display = 'none';
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
-})
+    scores = [0, 0]
+    roundScore = 0
+    document.querySelector('.player-')
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
+    document.querySelector('.player-' + activePlayer + '-panel').classList.remove('winner');
+}
+
+//~ New Game Button onClick Listener
+document.querySelector('.btn-new').addEventListener('click', function () {
+    endGame();
+});
